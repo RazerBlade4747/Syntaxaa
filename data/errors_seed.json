@@ -1,0 +1,209 @@
+[
+  {
+    "error_name": "SyntaxError",
+    "category": "Syntax",
+    "meaning": "The code breaks Python's grammar rules.",
+    "beginner_explanation": "Python could not understand the structure of your code. This often happens because of a missing colon, bracket, or using = instead of == inside a condition.",
+    "example_code": "if x=5:\n print(x)",
+    "fix_text": "Check for a missing colon (:) and use == instead of = when comparing values.",
+    "prevention_tip": "Read each line slowly and check brackets, colons, and quotation marks before running your code."
+  },
+  {
+    "error_name": "IndentationError",
+    "category": "Indentation",
+    "meaning": "Code is not indented the way Python expects.",
+    "beginner_explanation": "Python uses indentation to know which lines belong together, like inside an if block or loop. Mixing tabs and spaces causes this.",
+    "example_code": "if x > 5:\nprint(\"big\")",
+    "fix_text": "Make sure every line inside a block is indented consistently, using 4 spaces.",
+    "prevention_tip": "Stick to either spaces or tabs, never mix them."
+  },
+  {
+    "error_name": "NameError",
+    "category": "Name",
+    "meaning": "You used a variable or function that does not exist yet.",
+    "beginner_explanation": "This usually means you misspelled a variable name, or tried to use it before creating it.",
+    "example_code": "print(total)\ntotal = 10",
+    "fix_text": "Check the spelling and make sure the variable is created before it is used.",
+    "prevention_tip": "Declare and initialise variables before using them."
+  },
+  {
+    "error_name": "TypeError",
+    "category": "Type",
+    "meaning": "An operation was used on the wrong type of data.",
+    "beginner_explanation": "This happens when you try to combine incompatible types, like adding a number and text directly.",
+    "example_code": "age = 15\nprint(\"Age: \" + age)",
+    "fix_text": "Convert values to the same type before combining them, for example using str() or int().",
+    "prevention_tip": "Think about what type each variable holds before combining them."
+  },
+  {
+    "error_name": "ZeroDivisionError",
+    "category": "Logic",
+    "meaning": "The code tried to divide a number by zero.",
+    "beginner_explanation": "Division by zero is mathematically undefined, so Python stops the program to warn you.",
+    "example_code": "result = 10 / 0",
+    "fix_text": "Add a check to make sure the divisor is not zero before dividing.",
+    "prevention_tip": "Validate input before using it as a divisor."
+  },
+  {
+    "error_name": "IndexError",
+    "category": "Logic",
+    "meaning": "You tried to access a position in a list that does not exist.",
+    "beginner_explanation": "Lists are numbered starting from 0. Asking for an index beyond the last item causes this.",
+    "example_code": "numbers = [1, 2, 3]\nprint(numbers[5])",
+    "fix_text": "Check the length of the list with len() before accessing an index.",
+    "prevention_tip": "Remember indexing starts at 0."
+  },
+  {
+    "error_name": "KeyError",
+    "category": "Logic",
+    "meaning": "You tried to access a dictionary key that does not exist.",
+    "beginner_explanation": "Dictionaries store key-value pairs. Asking for a key that was never added causes this.",
+    "example_code": "student = {\"name\": \"Ravi\"}\nprint(student[\"age\"])",
+    "fix_text": "Check whether the key exists using 'in' or use .get() with a default.",
+    "prevention_tip": "Print the dictionary to check its structure before accessing keys."
+  },
+  {
+    "error_name": "ValueError",
+    "category": "Type",
+    "meaning": "A function received the right type but an inappropriate value.",
+    "beginner_explanation": "This often happens when converting text to a number, but the text is not a valid number.",
+    "example_code": "age = int(\"twelve\")",
+    "fix_text": "Validate input before converting it, or use try/except around the conversion.",
+    "prevention_tip": "Assume user input could be invalid and check it first."
+  },
+  {
+    "error_name": "FileNotFoundError",
+    "category": "File Handling",
+    "meaning": "You tried to open a file that does not exist at the given path.",
+    "beginner_explanation": "This happens when the file name or its location (path) is wrong, or the file has not been created yet. Python cannot open a file that isn't where you told it to look.",
+    "example_code": "file = open(\"marks.txt\", \"r\")",
+    "fix_text": "Check the file name for typos, and make sure the file is in the same folder as your script (or give the correct full path).",
+    "prevention_tip": "Use os.path.exists() to check if a file exists before trying to open it, or wrap the open() call in a try/except."
+  },
+  {
+    "error_name": "PermissionError",
+    "category": "File Handling",
+    "meaning": "The operating system did not allow this program to open or modify the file.",
+    "beginner_explanation": "This can happen if the file is open in another program (like Excel), if it is marked read-only, or if you don't have the rights to write to that folder.",
+    "example_code": "file = open(\"C:/Windows/system.ini\", \"w\")",
+    "fix_text": "Close the file if it's open elsewhere, check the file/folder permissions, or save to a different location you have write access to.",
+    "prevention_tip": "Avoid writing directly into protected system folders; use a folder inside your own project or Documents."
+  },
+  {
+    "error_name": "UnicodeDecodeError",
+    "category": "File Handling",
+    "meaning": "Python could not convert the file's bytes into text using the expected encoding.",
+    "beginner_explanation": "Text files are stored as bytes, and Python needs to know which encoding (like UTF-8) to use to read them correctly. This error appears when the file uses a different encoding than Python assumed.",
+    "example_code": "file = open(\"data.txt\", \"r\")\ncontent = file.read()",
+    "fix_text": "Specify the correct encoding when opening the file, for example open(\"data.txt\", \"r\", encoding=\"utf-8\").",
+    "prevention_tip": "Always open text files with an explicit encoding instead of relying on the system default."
+  },
+  {
+    "error_name": "EOFError",
+    "category": "Pickle",
+    "meaning": "Python reached the end of the file while still expecting more data.",
+    "beginner_explanation": "This very commonly happens with pickle.load() when the file you're reading from is empty or was never written to properly. Python starts reading a pickled object but runs out of bytes before it finishes.",
+    "example_code": "import pickle\nfile = open(\"data.dat\", \"rb\")\nrecord = pickle.load(file)",
+    "fix_text": "Check that the file actually has data in it (its size is not 0), and that you used pickle.dump() to write to it before trying to read. Wrap pickle.load() in a try/except EOFError to handle an empty file gracefully.",
+    "prevention_tip": "Before looping and calling pickle.load() repeatedly, check the file isn't empty, and stop the loop with a try/except EOFError when there's nothing left to read."
+  },
+  {
+    "error_name": "UnpicklingError",
+    "category": "Pickle",
+    "meaning": "The data in the file is not a valid pickle stream, so it cannot be converted back into a Python object.",
+    "beginner_explanation": "This happens when you try to unpickle a file that wasn't created with pickle.dump() at all (for example, a plain text file), or the file has become corrupted.",
+    "example_code": "import pickle\nfile = open(\"notes.txt\", \"rb\")\ndata = pickle.load(file)",
+    "fix_text": "Make sure you are opening a file that was actually written using pickle.dump(), and that the file wasn't edited by a text editor afterwards.",
+    "prevention_tip": "Use a distinct file extension like .dat or .pkl for pickle files so you don't accidentally open a plain text file with pickle.load()."
+  },
+  {
+    "error_name": "AttributeError",
+    "category": "Attribute",
+    "meaning": "You tried to use a method or property that does not exist for that type of object.",
+    "beginner_explanation": "Every object (a list, a string, a widget) only has certain methods available. This error means you called something that object doesn't have - often because of a typo, or because the object is not the type you thought it was (for example, it is None).",
+    "example_code": "name = None\nprint(name.upper())",
+    "fix_text": "Check the spelling of the method name, and print(type(your_variable)) to confirm it's actually the type of object you expect.",
+    "prevention_tip": "Be careful with functions that can return None - always check for None before calling a method on the result."
+  },
+  {
+    "error_name": "ImportError",
+    "category": "Import",
+    "meaning": "Python found the module, but could not find the specific name you tried to import from it.",
+    "beginner_explanation": "This is different from a missing module - the module itself exists, but the particular function, class or variable you asked for isn't inside it (often due to a typo or a version difference).",
+    "example_code": "from tkinter import Buttonn",
+    "fix_text": "Check the exact spelling and capitalisation of the name you are importing, and confirm it actually exists in that module's documentation.",
+    "prevention_tip": "Use your editor's autocomplete when importing, so you only import names that actually exist."
+  },
+  {
+    "error_name": "ModuleNotFoundError",
+    "category": "Import",
+    "meaning": "Python could not find the module you tried to import anywhere on your system.",
+    "beginner_explanation": "This usually means the module is not installed (for external libraries like pandas or mysql-connector-python), or you misspelled the module name.",
+    "example_code": "import pandaas",
+    "fix_text": "Check the spelling of the module name, and if it's a third-party library, install it first using pip install <module_name>.",
+    "prevention_tip": "Keep a requirements.txt file listing every external library your project needs, so you remember to install them on a new computer."
+  },
+  {
+    "error_name": "TclError",
+    "category": "Tkinter",
+    "meaning": "Tkinter's underlying Tcl engine rejected a command, usually because of an invalid widget option or a widget that no longer exists.",
+    "beginner_explanation": "This is the most common Tkinter error. It often happens when you pass an option a widget doesn't support (like a wrong color name), or when you try to update a widget that has already been destroyed.",
+    "example_code": "import tkinter as tk\nroot = tk.Tk()\nlabel = tk.Label(root, text=\"Hi\", colour=\"red\")\nroot.mainloop()",
+    "fix_text": "Check the widget option's spelling (it's 'fg', not 'colour', for foreground text color), and make sure you aren't configuring a widget after it has been destroyed.",
+    "prevention_tip": "Refer to the exact Tkinter option names in the documentation instead of guessing, and double check widget option spellings (bg, fg, font, etc.)."
+  },
+  {
+    "error_name": "RuntimeError",
+    "category": "Logic",
+    "meaning": "An error occurred that doesn't fit any more specific category - commonly raised when a collection is changed while it's being looped over.",
+    "beginner_explanation": "A frequent cause is modifying a dictionary or set while iterating over it with a for loop, which Python does not allow because it can't guarantee which items get visited.",
+    "example_code": "data = {\"a\": 1, \"b\": 2}\nfor key in data:\n    del data[key]",
+    "fix_text": "Loop over a copy of the collection instead, for example using list(data.keys()), so the original can be safely modified.",
+    "prevention_tip": "Never add or remove items from a list/dict/set while directly looping over it - build a new collection or loop over a copy instead."
+  },
+  {
+    "error_name": "StopIteration",
+    "category": "Logic",
+    "meaning": "next() was called on an iterator that has no more items left to give.",
+    "beginner_explanation": "Iterators (like the object returned by iter(a_list)) run out eventually. Calling next() one time too many raises this error instead of looping forever.",
+    "example_code": "numbers = iter([1, 2])\nprint(next(numbers))\nprint(next(numbers))\nprint(next(numbers))",
+    "fix_text": "Use a for loop instead of manually calling next() where possible, since for loops stop automatically. If you must use next(), provide a default value: next(numbers, None).",
+    "prevention_tip": "Prefer 'for item in iterable:' over manual next() calls unless you specifically need to control iteration step by step."
+  },
+  {
+    "error_name": "OverflowError",
+    "category": "Logic",
+    "meaning": "A calculation produced a result too large for Python to represent as a floating-point number.",
+    "beginner_explanation": "This is rare with whole numbers (Python's int can grow as large as memory allows) but happens with very large floating-point results, for example from math.exp() with a huge input.",
+    "example_code": "import math\nresult = math.exp(1000)",
+    "fix_text": "Check that the numbers going into the calculation are reasonable, and consider using Python's built-in int type (which doesn't overflow) instead of float where possible.",
+    "prevention_tip": "Validate input ranges before running calculations that could produce extremely large results."
+  },
+  {
+    "error_name": "RecursionError",
+    "category": "Logic",
+    "meaning": "A function called itself too many times without stopping, exceeding Python's maximum recursion depth.",
+    "beginner_explanation": "This happens with recursive functions (a function that calls itself) when the base case - the condition that stops the recursion - is missing, wrong, or never reached.",
+    "example_code": "def countdown(n):\n    print(n)\n    countdown(n - 1)\ncountdown(5)",
+    "fix_text": "Add or fix the base case so the function stops calling itself once a certain condition is met, for example 'if n <= 0: return'.",
+    "prevention_tip": "Every recursive function needs a clear base case - write it first before writing the recursive call."
+  },
+  {
+    "error_name": "ProgrammingError",
+    "category": "Database",
+    "meaning": "MySQL rejected the SQL command you sent, usually because of a syntax mistake or a reference to something that doesn't exist.",
+    "beginner_explanation": "This covers mistakes like a typo in a table/column name, missing quotes around text values in SQL, or the database/table not existing yet.",
+    "example_code": "cursor.execute(\"SELECT * FROM studnets\")",
+    "fix_text": "Check the SQL syntax carefully, and confirm the table and column names match exactly what's in your database (run SHOW TABLES; to check).",
+    "prevention_tip": "Run your SQL query directly in a MySQL client first to confirm it works before putting it inside Python code."
+  },
+  {
+    "error_name": "InterfaceError",
+    "category": "Database",
+    "meaning": "Python could not communicate with the MySQL server at all.",
+    "beginner_explanation": "This usually means the MySQL server isn't running, or the host/port/credentials in your connection settings are wrong.",
+    "example_code": "import mysql.connector\nconn = mysql.connector.connect(host=\"localhost\", user=\"root\", password=\"wrong\", database=\"syntaxaa\")",
+    "fix_text": "Make sure the MySQL service is running, and double-check the host, username, password and database name in config.py.",
+    "prevention_tip": "Test your database credentials with a MySQL client (like MySQL Workbench) before relying on them in your Python code."
+  }
+]
