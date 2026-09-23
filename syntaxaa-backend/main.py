@@ -5,11 +5,11 @@ import mysql.connector
 import os
 
 # Read database connection parameters from environment variables
-DB_HOST = os.getenv("DB_HOST")
-DB_USER = os.getenv("DB_USER")
-DB_PASS = os.getenv("DB_PASS")
-DB_NAME = os.getenv("DB_NAME", "defaultdb")
-DB_PORT = int(os.getenv("DB_PORT", 3306))
+MYSQL_HOST = os.getenv("MYSQL_HOST")
+MYSQL_USER = os.getenv("MYSQL_USER")
+MYSQL_PASS = os.getenv("MYSQL_PASS")
+MYSQL_NAME = os.getenv("MYSQL_NAME", "defaultdb")
+MYSQL_PORT = int(os.getenv("MYSQL_PORT", 3306))
 
 
 def get_db_connection():
