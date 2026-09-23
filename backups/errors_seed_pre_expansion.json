@@ -1,0 +1,74 @@
+[
+  {
+    "error_name": "SyntaxError",
+    "category": "Syntax",
+    "meaning": "The code breaks Python's grammar rules.",
+    "beginner_explanation": "Python could not understand the structure of your code. This often happens because of a missing colon, bracket, or using = instead of == inside a condition.",
+    "example_code": "if x=5:\n    print(x)",
+    "fix_text": "Check for a missing colon (:) and use == instead of = when comparing values.",
+    "prevention_tip": "Read each line slowly and check brackets, colons, and quotation marks before running your code."
+  },
+  {
+    "error_name": "IndentationError",
+    "category": "Indentation",
+    "meaning": "Code is not indented the way Python expects.",
+    "beginner_explanation": "Python uses indentation to know which lines belong together, like inside an if block or loop. Mixing tabs and spaces causes this.",
+    "example_code": "if x > 5:\nprint(\"big\")",
+    "fix_text": "Make sure every line inside a block is indented consistently, using 4 spaces.",
+    "prevention_tip": "Stick to either spaces or tabs, never mix them."
+  },
+  {
+    "error_name": "NameError",
+    "category": "Name",
+    "meaning": "You used a variable or function that does not exist yet.",
+    "beginner_explanation": "This usually means you misspelled a variable name, or tried to use it before creating it.",
+    "example_code": "print(total)\ntotal = 10",
+    "fix_text": "Check the spelling and make sure the variable is created before it is used.",
+    "prevention_tip": "Declare and initialise variables before using them."
+  },
+  {
+    "error_name": "TypeError",
+    "category": "Type",
+    "meaning": "An operation was used on the wrong type of data.",
+    "beginner_explanation": "This happens when you try to combine incompatible types, like adding a number and text directly.",
+    "example_code": "age = 15\nprint(\"Age: \" + age)",
+    "fix_text": "Convert values to the same type before combining them, for example using str() or int().",
+    "prevention_tip": "Think about what type each variable holds before combining them."
+  },
+  {
+    "error_name": "ZeroDivisionError",
+    "category": "Logic",
+    "meaning": "The code tried to divide a number by zero.",
+    "beginner_explanation": "Division by zero is mathematically undefined, so Python stops the program to warn you.",
+    "example_code": "result = 10 / 0",
+    "fix_text": "Add a check to make sure the divisor is not zero before dividing.",
+    "prevention_tip": "Validate input before using it as a divisor."
+  },
+  {
+    "error_name": "IndexError",
+    "category": "Logic",
+    "meaning": "You tried to access a position in a list that does not exist.",
+    "beginner_explanation": "Lists are numbered starting from 0. Asking for an index beyond the last item causes this.",
+    "example_code": "numbers = [1, 2, 3]\nprint(numbers[5])",
+    "fix_text": "Check the length of the list with len() before accessing an index.",
+    "prevention_tip": "Remember indexing starts at 0."
+  },
+  {
+    "error_name": "KeyError",
+    "category": "Logic",
+    "meaning": "You tried to access a dictionary key that does not exist.",
+    "beginner_explanation": "Dictionaries store key-value pairs. Asking for a key that was never added causes this.",
+    "example_code": "student = {\"name\": \"Ravi\"}\nprint(student[\"age\"])",
+    "fix_text": "Check whether the key exists using 'in' or use .get() with a default.",
+    "prevention_tip": "Print the dictionary to check its structure before accessing keys."
+  },
+  {
+    "error_name": "ValueError",
+    "category": "Type",
+    "meaning": "A function received the right type but an inappropriate value.",
+    "beginner_explanation": "This often happens when converting text to a number, but the text is not a valid number.",
+    "example_code": "age = int(\"twelve\")",
+    "fix_text": "Validate input before converting it, or use try/except around the conversion.",
+    "prevention_tip": "Assume user input could be invalid and check it first."
+  }
+]
