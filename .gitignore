@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 *.pyo
 .env
+
+# Aiven / MySQL CA certificate - never commit this
+ca.pem
+*.pem
+
+# Local offline-mode data (contains user data / password hashes)
+local_data/
