@@ -1,17 +1,3 @@
-"""
-ai_assist.py
-------------
-Optional online AI assistance. This module is completely isolated:
-if it fails for any reason (no internet, no API key, request error),
-it simply returns a friendly message and the rest of the application
-is unaffected.
-
-VIVA NOTE: This is the ONLY module that touches the internet. Every
-other module works fully offline. That separation is deliberate and
-is the answer to "how does offline mode work?" - the other modules
-simply never import this one.
-"""
-
 import config
 
 
